@@ -74,7 +74,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?",
       "user": {
         "id": "u1",
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg",
+        "image": "https://i.pravatar.cc/300",
         "username": "vadimnotjustdev"
       },
       "nofComments": 11,
@@ -105,7 +105,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?",
       "user": {
         "id": "u1",
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/2.jpg",
+        "image": "https://i.pravatar.cc/300",
         "username": "vadimnotjustdev"
       },
       "nofComments": 11,
@@ -136,7 +136,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?",
       "user": {
         "id": "u1",
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/3.jpg",
+        "image": "https://i.pravatar.cc/300",
         "username": "vadimnotjustdev"
       },
       "nofComments": 11,
@@ -167,7 +167,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?",
       "user": {
         "id": "u1",
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/4.jpg",
+        "image": "https://i.pravatar.cc/300",
         "username": "vadimnotjustdev"
       },
       "nofComments": 11,

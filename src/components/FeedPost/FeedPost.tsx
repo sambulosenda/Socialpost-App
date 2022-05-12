@@ -43,8 +43,8 @@ const FeedPost = ({ post }: IFeedPost) => {
     content = <Image source={{ uri: post.image }} style={styles.image} />;
   } else if (post.images) {
     content = <Carousel images={post.images} />;
-  } else if(post.video) {
-    content = <VideoPlayer uri={post.video }/>;
+  } else if (post.video) {
+    content = <VideoPlayer uri={post.video} />;
   }
 
   return (
@@ -107,9 +107,7 @@ const FeedPost = ({ post }: IFeedPost) => {
 const styles = StyleSheet.create({
   post: {},
 
-  video: {
-
-  },
+  video: {},
 
   bold: {
     fontWeight: fonts.weight.bold,
@@ -133,7 +131,6 @@ const styles = StyleSheet.create({
   username: {
     fontWeight: fonts.weight.bold,
     color: colors.black,
-
   },
 
   threeDots: {
@@ -161,8 +158,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: 8,
     fontSize: 16,
-
-
   },
 });
 

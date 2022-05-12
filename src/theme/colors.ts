@@ -4,6 +4,8 @@ const colors = {
   black: '#000',
   grey: '#666666',
   lightGrey: '#cccccc',
+  error: 'red',
+  
 };
 
 export default colors;

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* InstaphotoappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* InstaphotoappTests.m */; };
-		02BD6A9EA6D04C8B894C3D0D /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA63E29B10A946E795827B13 /* Fontisto.ttf */; };
 		09C5F9F7A6A041DD9304064F /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E973FDC351D347CCB16CE8C5 /* Roboto-MediumItalic.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Instaphotoapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Instaphotoapp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -16,30 +15,17 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2132A902AE304FFEAA1AC5D2 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CFCF483B2AC444CFAB339138 /* Roboto-BlackItalic.ttf */; };
 		25008F93039F42A89A87F7EF /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD41DB8DD4D64BA4BC64DD9A /* Roboto-Regular.ttf */; };
-		2BAF2E78DA8A4FCAA58594DE /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A51BB558E98947EC9C530B64 /* FontAwesome5_Solid.ttf */; };
 		2E21DEA8783D4A2484500886 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 694F5F7FC1CE44EA8C7B50CC /* Roboto-Thin.ttf */; };
-		4A0651954EAB496EAA89082C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1696FB75387D49358FFEE03A /* MaterialCommunityIcons.ttf */; };
 		53065166FD034E459A77E24A /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0899AD0F738A4267A12DA29C /* Roboto-LightItalic.ttf */; };
-		56AB7AC2C8684C1FAE0F3811 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47893403EEE74B1297B19E3B /* Entypo.ttf */; };
-		56AEA4583CBF4456836FC5AF /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F960FA39B9584E2D912539BD /* FontAwesome5_Brands.ttf */; };
-		736D1D6218D545338CE86F81 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702B9647470345379C252370 /* Octicons.ttf */; };
 		75859AE5C4E84A38B5C1B94F /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF6B499754644B6B9091795A /* Roboto-Italic.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-Instaphotoapp-InstaphotoappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Instaphotoapp-InstaphotoappTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		93C83B0CEBB74947B7B830C0 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 242E81EF75D64BEABB2B9AF9 /* Ionicons.ttf */; };
 		9468CAE5140940FF8CE86D9F /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 838A6DD2789A438CBD817297 /* Roboto-ThinItalic.ttf */; };
-		965A76D92F4C4A4398A464DB /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F886CB67148745C3BB2781DF /* FontAwesome5_Regular.ttf */; };
+		96B0E46F02ECE9BC5CD9F089 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275EC8CDC8E60A8EEEC1938 /* ExpoModulesProvider.swift */; };
+		9A223FB108F92E556D5C28CE /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C482172FDC5B1285922B4EF8 /* ExpoModulesProvider.swift */; };
 		A5D1D23BF1344AC1BD5F49F9 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 568A8F8C332D4839870394FA /* Roboto-Light.ttf */; };
-		ABBF9D8E8B3047C08E7F73ED /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1F2F33C2C26437A80F09547 /* Feather.ttf */; };
-		B3101DEB20DE451CAE9D8F7B /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2773461999BD4E3BB5893B79 /* AntDesign.ttf */; };
-		BB5CFCDA702241718AF1563C /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9D82DCAF8FC400D85E1A140 /* EvilIcons.ttf */; };
-		C3407297E87E41C182A0BE71 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 873AE502BEC645AFA4FC52D4 /* FontAwesome.ttf */; };
 		C5F76CDA16CD4A7DB137E654 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A5E9FC27704774BA9EF452 /* Roboto-BoldItalic.ttf */; };
-		C9B40DEEA06242F3AAC51029 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A09B3A5AA6FB4872862464FD /* Foundation.ttf */; };
 		D383028E874C4A14AED9A99D /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B59BCCDC8C084031900EB19A /* Roboto-Black.ttf */; };
-		E0C33D2A5E7B43B7B07DA48E /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B17EA29914ABF9ABDF0AD /* SimpleLineIcons.ttf */; };
-		E33902A15D9347CBAF1C8661 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2BFDBB0F4F24FB282ED37B8 /* MaterialIcons.ttf */; };
-		E95B4050A72042D3B8E874D7 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89F0664DE558455D9A950F0E /* Zocial.ttf */; };
 		FA4F7DC77CD14840B7F791DD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F55CBB969B15429CBD5BC350 /* Roboto-Bold.ttf */; };
 		FD0742E6F1AB4DC3ABDC2EAA /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6744976CA78047ADA10D4580 /* Roboto-Medium.ttf */; };
 /* End PBXBuildFile section */
@@ -65,41 +51,27 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Instaphotoapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Instaphotoapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Instaphotoapp/main.m; sourceTree = "<group>"; };
-		1696FB75387D49358FFEE03A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Instaphotoapp-InstaphotoappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Instaphotoapp-InstaphotoappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		242E81EF75D64BEABB2B9AF9 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		2773461999BD4E3BB5893B79 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Instaphotoapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instaphotoapp.debug.xcconfig"; path = "Target Support Files/Pods-Instaphotoapp/Pods-Instaphotoapp.debug.xcconfig"; sourceTree = "<group>"; };
-		47893403EEE74B1297B19E3B /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		568A8F8C332D4839870394FA /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Instaphotoapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instaphotoapp.release.xcconfig"; path = "Target Support Files/Pods-Instaphotoapp/Pods-Instaphotoapp.release.xcconfig"; sourceTree = "<group>"; };
-		5A1B17EA29914ABF9ABDF0AD /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Instaphotoapp-InstaphotoappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instaphotoapp-InstaphotoappTests.debug.xcconfig"; path = "Target Support Files/Pods-Instaphotoapp-InstaphotoappTests/Pods-Instaphotoapp-InstaphotoappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Instaphotoapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Instaphotoapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6275EC8CDC8E60A8EEEC1938 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Instaphotoapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		6744976CA78047ADA10D4580 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		694F5F7FC1CE44EA8C7B50CC /* Roboto-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
-		702B9647470345379C252370 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Instaphotoapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		838A6DD2789A438CBD817297 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
-		873AE502BEC645AFA4FC52D4 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Instaphotoapp-InstaphotoappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instaphotoapp-InstaphotoappTests.release.xcconfig"; path = "Target Support Files/Pods-Instaphotoapp-InstaphotoappTests/Pods-Instaphotoapp-InstaphotoappTests.release.xcconfig"; sourceTree = "<group>"; };
-		89F0664DE558455D9A950F0E /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		A09B3A5AA6FB4872862464FD /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		A51BB558E98947EC9C530B64 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		B59BCCDC8C084031900EB19A /* Roboto-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		BD41DB8DD4D64BA4BC64DD9A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		C482172FDC5B1285922B4EF8 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Instaphotoapp-InstaphotoappTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		CFCF483B2AC444CFAB339138 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BlackItalic.ttf"; path = "../assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
-		D1F2F33C2C26437A80F09547 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		D2BFDBB0F4F24FB282ED37B8 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		D6A5E9FC27704774BA9EF452 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldItalic.ttf"; path = "../assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		E973FDC351D347CCB16CE8C5 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-MediumItalic.ttf"; path = "../assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
-		EA63E29B10A946E795827B13 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EF6B499754644B6B9091795A /* Roboto-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		F55CBB969B15429CBD5BC350 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		F886CB67148745C3BB2781DF /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		F960FA39B9584E2D912539BD /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		F9D82DCAF8FC400D85E1A140 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,24 +149,16 @@
 				BD41DB8DD4D64BA4BC64DD9A /* Roboto-Regular.ttf */,
 				694F5F7FC1CE44EA8C7B50CC /* Roboto-Thin.ttf */,
 				838A6DD2789A438CBD817297 /* Roboto-ThinItalic.ttf */,
-				2773461999BD4E3BB5893B79 /* AntDesign.ttf */,
-				47893403EEE74B1297B19E3B /* Entypo.ttf */,
-				F9D82DCAF8FC400D85E1A140 /* EvilIcons.ttf */,
-				D1F2F33C2C26437A80F09547 /* Feather.ttf */,
-				873AE502BEC645AFA4FC52D4 /* FontAwesome.ttf */,
-				F960FA39B9584E2D912539BD /* FontAwesome5_Brands.ttf */,
-				F886CB67148745C3BB2781DF /* FontAwesome5_Regular.ttf */,
-				A51BB558E98947EC9C530B64 /* FontAwesome5_Solid.ttf */,
-				EA63E29B10A946E795827B13 /* Fontisto.ttf */,
-				A09B3A5AA6FB4872862464FD /* Foundation.ttf */,
-				242E81EF75D64BEABB2B9AF9 /* Ionicons.ttf */,
-				1696FB75387D49358FFEE03A /* MaterialCommunityIcons.ttf */,
-				D2BFDBB0F4F24FB282ED37B8 /* MaterialIcons.ttf */,
-				702B9647470345379C252370 /* Octicons.ttf */,
-				5A1B17EA29914ABF9ABDF0AD /* SimpleLineIcons.ttf */,
-				89F0664DE558455D9A950F0E /* Zocial.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		6B3F7C117924109FCD719917 /* Instaphotoapp */ = {
+			isa = PBXGroup;
+			children = (
+				6275EC8CDC8E60A8EEEC1938 /* ExpoModulesProvider.swift */,
+			);
+			name = Instaphotoapp;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -214,6 +178,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				3A8FB0D5CB224AD5A2993BD4 /* Resources */,
+				FE006C4ACC707C9BBC21F82C /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -229,6 +194,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9173209A7B3A1CBD69ADFC3E /* InstaphotoappTests */ = {
+			isa = PBXGroup;
+			children = (
+				C482172FDC5B1285922B4EF8 /* ExpoModulesProvider.swift */,
+			);
+			name = InstaphotoappTests;
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +211,15 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-Instaphotoapp-InstaphotoappTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE006C4ACC707C9BBC21F82C /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				6B3F7C117924109FCD719917 /* Instaphotoapp */,
+				9173209A7B3A1CBD69ADFC3E /* InstaphotoappTests */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +257,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
+				68B0D93259F84F6D088C2F9B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,22 +330,6 @@
 				25008F93039F42A89A87F7EF /* Roboto-Regular.ttf in Resources */,
 				2E21DEA8783D4A2484500886 /* Roboto-Thin.ttf in Resources */,
 				9468CAE5140940FF8CE86D9F /* Roboto-ThinItalic.ttf in Resources */,
-				B3101DEB20DE451CAE9D8F7B /* AntDesign.ttf in Resources */,
-				56AB7AC2C8684C1FAE0F3811 /* Entypo.ttf in Resources */,
-				BB5CFCDA702241718AF1563C /* EvilIcons.ttf in Resources */,
-				ABBF9D8E8B3047C08E7F73ED /* Feather.ttf in Resources */,
-				C3407297E87E41C182A0BE71 /* FontAwesome.ttf in Resources */,
-				56AEA4583CBF4456836FC5AF /* FontAwesome5_Brands.ttf in Resources */,
-				965A76D92F4C4A4398A464DB /* FontAwesome5_Regular.ttf in Resources */,
-				2BAF2E78DA8A4FCAA58594DE /* FontAwesome5_Solid.ttf in Resources */,
-				02BD6A9EA6D04C8B894C3D0D /* Fontisto.ttf in Resources */,
-				C9B40DEEA06242F3AAC51029 /* Foundation.ttf in Resources */,
-				93C83B0CEBB74947B7B830C0 /* Ionicons.ttf in Resources */,
-				4A0651954EAB496EAA89082C /* MaterialCommunityIcons.ttf in Resources */,
-				E33902A15D9347CBAF1C8661 /* MaterialIcons.ttf in Resources */,
-				736D1D6218D545338CE86F81 /* Octicons.ttf in Resources */,
-				E0C33D2A5E7B43B7B07DA48E /* SimpleLineIcons.ttf in Resources */,
-				E95B4050A72042D3B8E874D7 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +365,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Instaphotoapp/Pods-Instaphotoapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68B0D93259F84F6D088C2F9B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Instaphotoapp/Pods-Instaphotoapp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Instaphotoapp/Pods-Instaphotoapp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Instaphotoapp/Pods-Instaphotoapp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -505,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* InstaphotoappTests.m in Sources */,
+				9A223FB108F92E556D5C28CE /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +499,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				96B0E46F02ECE9BC5CD9F089 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +524,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = InstaphotoappTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,6 +535,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instaphotoapp.app/Instaphotoapp";
@@ -562,7 +549,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = InstaphotoappTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -573,6 +560,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instaphotoapp.app/Instaphotoapp";
@@ -597,6 +585,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Instaphotoapp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -622,6 +611,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Instaphotoapp;
 				SWIFT_VERSION = 5.0;
@@ -678,7 +668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -742,7 +732,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
