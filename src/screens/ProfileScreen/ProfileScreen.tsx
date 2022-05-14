@@ -3,7 +3,16 @@ import React from 'react';
 import user from '../../assets/data/user.json';
 import Button from '../../components/Button/Button';
 
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { Auth } from 'aws-amplify';
+
 const ProfileScreen = () => {
+  const route = useRoute();
+  const navigation = useNavigation();
+  const  userId  = route.params?.userId;
+
+  navigation.setOptions({ title: user.username });
+
   return (
     <View style={styles.root}>
       <View style={styles.headerRow}>
@@ -30,7 +39,7 @@ const ProfileScreen = () => {
 
       <View style={{ flexDirection: 'row' }}>
         <Button text="Edit Profile" onPress={() => console.warn('edit')} />
-        <Button text="Insights" onPress={() => console.warn('edit')} />
+        <Button onPress={() => Auth.signOut()} text="Sign out" />
       </View>
     </View>
   );

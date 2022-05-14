@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView, FlatList } fro
 import FeedPost from '../../components/FeedPost/FeedPost';
 import posts from '../../assets/data/posts.json';
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
+  console.log("HomeScreen props: ", props);
   return (
     <FlatList
       data={posts}

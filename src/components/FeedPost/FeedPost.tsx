@@ -12,6 +12,9 @@ import { useState } from 'react';
 import Carousel from '../Carousel/Carousel';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
+import { useNavigation } from '@react-navigation/native';
+
+
 interface IFeedPost {
   post: IPost;
 }
@@ -19,6 +22,12 @@ interface IFeedPost {
 const FeedPost = ({ post }: IFeedPost) => {
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  const navigation = useNavigation();
+
+  const navigationToUser = () => {
+    navigation.navigate('UserProfile', { userId: post.user.id });
+
+  }
 
   const toggleDescription = () => {
     setIsDescriptionExpanded((existingValue) => !existingValue);
@@ -52,7 +61,7 @@ const FeedPost = ({ post }: IFeedPost) => {
       {/* Header */}
       <View style={styles.header}>
         <Image source={{ uri: post.user.image }} style={styles.avatar} />
-        <Text style={styles.username}>{post.user.username}</Text>
+        <Text onPress={navigationToUser}style={styles.username}>{post.user.username}</Text>
         <Entypo name="dots-three-horizontal" size={16} style={styles.threeDots} />
       </View>
 

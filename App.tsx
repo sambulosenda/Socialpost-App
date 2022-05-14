@@ -1,22 +1,12 @@
-import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView, FlatList } from 'react-native';
-import CommentsScreen from './src/screens/CommentsScreen/CommentsScreen';
-import EditProfileScreen from './src/screens/EditProfileScreen/EditProfileScreen';
+import Navigation from './src/navigation';
+import Amplify, { photoPlaceholderIcon } from 'aws-amplify';
+import config from './src/aws-exports';
 
-import HomeScreen from './src/screens/HomeScreen/HomeScreen';
-import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
+Amplify.configure(config);
 
 const App = () => {
-  return (
-    <SafeAreaView style={styles.app}>
-      <EditProfileScreen />
-    </SafeAreaView>
-  );
+  return <Navigation />;
 };
 
-const styles = StyleSheet.create({
-  app: {
-    flex: 1,
-  },
-});
 
 export default App;
