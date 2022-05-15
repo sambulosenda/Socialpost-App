@@ -1,16 +1,17 @@
-import {
-  View,
-  Image,
-  StyleSheet,
-  useWindowDimensions,
-  ScrollView,
-} from 'react-native';
+import { View, Image, StyleSheet, useWindowDimensions, ScrollView, Alert } from 'react-native';
+import Logo from '../../../assets/images/logos.png';
 import FormInput from '../components/FormInput';
-import CustomButton from '../components/CustomButton';
+import CustomButton from '../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../components/SocialSignInButtons';
-import {useNavigation} from '@react-navigation/native';
-import {useForm} from 'react-hook-form';
-import {SignInNavigationProp} from '../../../types/navigation';
+import { useNavigation } from '@react-navigation/native';
+import { useForm } from 'react-hook-form';
+import { SignInNavigationProp } from '../../../types/navigation';
+
+//import Auth from AWS Amplify
+import { Auth } from 'aws-amplify';
+import { useState, useContext } from 'react';
+import colors from '../../../theme/colors';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
 type SignInData = {
   username: string;
@@ -18,13 +19,30 @@ type SignInData = {
 };
 
 const SignInScreen = () => {
-  const {height} = useWindowDimensions();
+  const { height } = useWindowDimensions();
   const navigation = useNavigation<SignInNavigationProp>();
+  const [loading, setLoading] = useState(false);
+  const { setUser } = useAuthContext();
 
-  const {control, handleSubmit} = useForm<SignInData>();
+  const { control, handleSubmit, reset } = useForm<SignInData>();
 
-  const onSignInPressed = (data: SignInData) => {
-    console.log(data);
+  const onSignInPressed = async ({ username, password }: SignInData) => {
+    if (loading) {
+      return Alert.alert('Please wait', 'Signing in...');
+    }
+    setLoading(true);
+    try {
+      const cognitoUser = await Auth.signIn(username, password);
+
+      //save data in context
+      setUser(cognitoUser);
+    } catch (e) {
+      Alert.alert('Opps', (e as Error).message);
+    } finally {
+      setLoading(false);
+      reset();
+    }
+
     // validate user
     // navigation.navigate('Home');
   };
@@ -38,48 +56,47 @@ const SignInScreen = () => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.root}>
-      
+    <View style={styles.root}>
+      <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
 
-        <FormInput
-          name="username"
-          placeholder="Username"
-          control={control}
-          rules={{required: 'Username is required'}}
-        />
+      <FormInput
+        name="username"
+        placeholder="Username"
+        control={control}
+        rules={{ required: 'Username is required' }}
+      />
 
-        <FormInput
-          name="password"
-          placeholder="Password"
-          secureTextEntry
-          control={control}
-          rules={{
-            required: 'Password is required',
-            minLength: {
-              value: 3,
-              message: 'Password should be minimum 3 characters long',
-            },
-          }}
-        />
+      <FormInput
+        name="password"
+        placeholder="Password"
+        secureTextEntry
+        control={control}
+        rules={{
+          required: 'Password is required',
+          minLength: {
+            value: 3,
+            message: 'Password should be minimum 3 characters long',
+          },
+        }}
+      />
 
-        <CustomButton text="Sign In" onPress={handleSubmit(onSignInPressed)} />
+      <CustomButton
+        text={loading ? 'Loading...' : 'Sign In'}
+        onPress={handleSubmit(onSignInPressed)}
+        type="TERTIARY"
+        bgColor="blue"
+      />
 
-        <CustomButton
-          text="Forgot password?"
-          onPress={onForgotPasswordPressed}
-          type="TERTIARY"
-        />
+      <CustomButton text="Forgot password?" onPress={onForgotPasswordPressed} type="TERTIARY" />
 
-        <SocialSignInButtons />
+      <SocialSignInButtons />
 
-        <CustomButton
-          text="Don't have an account? Create one"
-          onPress={onSignUpPress}
-          type="TERTIARY"
-        />
-      </View>
-    </ScrollView>
+      <CustomButton
+        text="Don't have an account? Create one"
+        onPress={onSignUpPress}
+        type="TERTIARY"
+      />
+    </View>
   );
 };
 
@@ -89,9 +106,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
+    width: '40%',
   },
 });
 
