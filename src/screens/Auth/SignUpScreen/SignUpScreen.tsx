@@ -11,12 +11,9 @@ import { useState } from 'react';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-const USERNAME_REGEX = /^[a-zA-Z0-9_]*$/; // alphanumeric and underscore
-
 type SignUpData = {
   name: string;
   email: string;
-  username: string;
   password: string;
   passwordRepeat: string;
 };
@@ -27,17 +24,18 @@ const SignUpScreen = () => {
   const navigation = useNavigation<SignUpNavigationProp>();
   const [loading, setLoading] = useState(false);
 
-  const onRegisterPressed = async ({ name, email, username, password }: SignUpData) => {
+  const onRegisterPressed = async ({ name, email, password }: SignUpData) => {
     if (loading) {
       return;
     }
     setLoading(true);
-    try { await Auth.signUp({
-        username,
+    try {
+      await Auth.signUp({
+        username: email,
         password,
         attributes: { name, email },
       });
-      navigation.navigate('Confirm email', {username})
+      navigation.navigate('Confirm email', { email });
     } catch (e) {
       Alert.alert('Opps', (e as Error).message);
     } finally {
@@ -79,26 +77,6 @@ const SignUpScreen = () => {
           }}
         />
 
-        <FormInput
-          name="username"
-          control={control}
-          placeholder="Username"
-          rules={{
-            required: 'Username is required',
-            minLength: {
-              value: 3,
-              message: 'Username should be at least 3 characters long',
-            },
-            maxLength: {
-              value: 24,
-              message: 'Username should be max 24 characters long',
-            },
-            pattern: {
-              value: USERNAME_REGEX,
-              message: 'Username can only contain a-z, 0-9, _',
-            },
-          }}
-        />
         <FormInput
           name="email"
           control={control}

@@ -3,7 +3,7 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "photog40cc842f",
+    "resourceNameTruncated": "photoge8f95073",
     "userPoolName": "Photogram",
     "autoVerifiedAttributes": [
       "email"
@@ -30,12 +30,15 @@
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "Photog40cc842f_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "Photoge8f95073_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "40cc842f",
+    "sharedId": "e8f95073",
     "resourceName": "Photogram",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
+    "usernameAttributes": [
+      "email"
+    ],
     "useDefault": "manual",
     "userPoolGroups": false,
     "userPoolGroupList": [],

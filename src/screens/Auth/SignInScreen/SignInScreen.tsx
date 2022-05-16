@@ -14,7 +14,7 @@ import colors from '../../../theme/colors';
 import { useAuthContext } from '../../../contexts/AuthContext';
 
 type SignInData = {
-  username: string;
+  email: string;
   password: string;
 };
 
@@ -26,17 +26,18 @@ const SignInScreen = () => {
 
   const { control, handleSubmit, reset } = useForm<SignInData>();
 
-  const onSignInPressed = async ({ username, password }: SignInData) => {
+  const onSignInPressed = async ({ email, password }: SignInData) => {
     if (loading) {
       return Alert.alert('Please wait', 'Signing in...');
     }
     setLoading(true);
     try {
-      const cognitoUser = await Auth.signIn(username, password);
+      const cognitoUser = await Auth.signIn(email, password);
 
       //save data in context
       setUser(cognitoUser);
     } catch (e) {
+
       Alert.alert('Opps', (e as Error).message);
     } finally {
       setLoading(false);
@@ -60,8 +61,8 @@ const SignInScreen = () => {
       <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
 
       <FormInput
-        name="username"
-        placeholder="Username"
+        name="email"
+        placeholder="Email"
         control={control}
         rules={{ required: 'Username is required' }}
       />

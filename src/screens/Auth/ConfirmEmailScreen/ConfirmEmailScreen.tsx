@@ -9,6 +9,9 @@ import { ConfirmEmailNavigationProp, ConfirmEmailRouteProp } from '../../../type
 import { useRoute } from '@react-navigation/native';
 import { Auth } from 'aws-amplify';
 
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 type ConfirmEmailData = {
   email: string;
   code: string;
@@ -23,6 +26,8 @@ const ConfirmEmailScreen = () => {
   const [loading, setLoading] = useState(false);
 
   const navigation = useNavigation<ConfirmEmailNavigationProp>();
+  
+  const email = watch('email')
 
   const onConfirmPressed = async ({ email, code }: ConfirmEmailData) => {
     if (loading) {
@@ -59,11 +64,13 @@ const ConfirmEmailScreen = () => {
         <Text style={styles.title}>Confirm your email</Text>
 
         <FormInput
-          name="username"
+          name="email"
           control={control}
-          placeholder="Username"
+          placeholder="email"
           rules={{
             required: 'Username is required',
+            pattern: { value: EMAIL_REGEX, message: 'Email is invalid' },
+
           }}
         />
 

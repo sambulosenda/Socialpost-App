@@ -47,7 +47,7 @@ const NewPasswordScreen = () => {
 
         <FormInput
           placeholder="Username"
-          name="username"
+          name="email"
           control={control}
           rules={{ required: 'Username is required' }}
         />
