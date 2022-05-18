@@ -9,11 +9,18 @@
       "UnauthRoleName": "amplify-photogram-staging-113402-unauthRole",
       "StackName": "amplify-photogram-staging-113402",
       "StackId": "arn:aws:cloudformation:eu-west-2:810740969385:stack/amplify-photogram-staging-113402/c12a2130-d379-11ec-9c53-0a24e1866e62",
-      "AmplifyAppId": "d3nzm0f8slfhsl"
+      "AmplifyAppId": "d3nzm0f8slfhsl",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-photogram-staging-113402-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
         "Photogram": {}
+      },
+      "function": {
+        "PhotogramPostConfirmation": {
+          "deploymentBucketName": "amplify-photogram-staging-113402-deployment",
+          "s3Key": "amplify-builds/PhotogramPostConfirmation-2b56316955315a554847-build.zip"
+        }
       }
     }
   }
