@@ -2,11 +2,11 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../../theme/colors';
 import fonts from '../../theme/fonts';
-import { IComment } from '../../types/models';
 import { useState } from 'react';
+import { Comment as CommentType } from '../../API';
 
 interface ICommentProps {
-  comment: IComment;
+  comment: CommentType;
   includeDetails: boolean;
 }
 

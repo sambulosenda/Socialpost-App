@@ -19,7 +19,7 @@
       "function": {
         "PhotogramPostConfirmation": {
           "deploymentBucketName": "amplify-photogram-staging-113402-deployment",
-          "s3Key": "amplify-builds/PhotogramPostConfirmation-2b56316955315a554847-build.zip"
+          "s3Key": "amplify-builds/PhotogramPostConfirmation-67376d38337037396931-build.zip"
         }
       }
     }

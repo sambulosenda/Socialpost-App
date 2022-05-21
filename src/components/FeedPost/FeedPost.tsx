@@ -7,16 +7,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../../theme/colors';
 import fonts from '../../theme/fonts';
 import Comment from '../Comment/Comment';
-import { IPost } from '../../types/models';
 import { useState } from 'react';
 import Carousel from '../Carousel/Carousel';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
 import { useNavigation } from '@react-navigation/native';
+import { Post } from '../../API';
 
 
 interface IFeedPost {
-  post: IPost;
+  post: Post;
 }
 
 const FeedPost = ({ post }: IFeedPost) => {
@@ -25,7 +25,7 @@ const FeedPost = ({ post }: IFeedPost) => {
   const navigation = useNavigation();
 
   const navigationToUser = () => {
-    navigation.navigate('UserProfile', { userId: post.user.id });
+    navigation.navigate('UserProfile', { userId: post.User?.id });
 
   }
 
@@ -60,8 +60,8 @@ const FeedPost = ({ post }: IFeedPost) => {
     <View style={styles.post}>
       {/* Header */}
       <View style={styles.header}>
-        <Image source={{ uri: post.user.image }} style={styles.avatar} />
-        <Text onPress={navigationToUser}style={styles.username}>{post.user.username}</Text>
+        <Image source={{ uri: post.User?.image }} style={styles.avatar} />
+        <Text onPress={navigationToUser}style={styles.username}>{post.User?.username}</Text>
         <Entypo name="dots-three-horizontal" size={16} style={styles.threeDots} />
       </View>
 
@@ -104,9 +104,10 @@ const FeedPost = ({ post }: IFeedPost) => {
 
         {/* Post Comments*/}
         <Text>View all {post.nofComments} comments</Text>
-        {post.comments.map((comment) => (
+        {(post.Comments?.items || []).map(
+          comment => comment &&  
           <Comment key={comment.id} comment={comment} />
-        ))}
+        )}
         <Text>{post.createdAt}</Text>
       </View>
     </View>

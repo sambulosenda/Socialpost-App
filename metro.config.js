@@ -6,6 +6,10 @@
  */
 
 module.exports = {
+  resolver: {
+    //fix the the duplicate error
+    blacklistRE: /#current-cloud-backend\/.*/,
+  },
   transformer: {
     getTransformOptions: async () => ({
       transform: {

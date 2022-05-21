@@ -1,10 +1,63 @@
 import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView, FlatList } from 'react-native';
 
 import FeedPost from '../../components/FeedPost/FeedPost';
-import posts from '../../assets/data/posts.json';
+
+import { API, graphqlOperation } from 'aws-amplify';
+import { useEffect, useState } from 'react';
+
+export const listPosts = /* GraphQL */ `
+  query ListPosts($filter: ModelPostFilterInput, $limit: Int, $nextToken: String) {
+    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        description
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        User {
+          id
+          name
+          username
+          image
+        }
+        Comments {
+          items {
+            id
+            comment
+            User {
+              id
+              name
+            }
+          }
+        }
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 
 const HomeScreen = (props) => {
-  console.log("HomeScreen props: ", props);
+  const [posts, setPosts] = useState([]);
+
+  const fetchAllPosts = async () => {
+    const response = await API.graphql(graphqlOperation(listPosts));
+    console.log(response);
+    setPosts(response.data.listPosts.items);
+  };
+
+  useEffect(() => {
+    fetchAllPosts();
+  }, []);
+
   return (
     <FlatList
       data={posts}
