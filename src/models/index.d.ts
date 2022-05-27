@@ -52,9 +52,8 @@ export declare class User {
 
 export declare class Post {
   readonly id: string;
-  readonly description?: string | null;
+  readonly description: string;
   readonly image?: string | null;
-  readonly images?: string[] | null;
   readonly video?: string | null;
   readonly nofComments: number;
   readonly nofLikes: number;

@@ -6,6 +6,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import PostUploadScreen from '../screens/PostUploadScreen/PostUploadScreen';
+import NewPostScreen from '../screens/NewPostScreeen/NewPostScreen';
+import UploadStackNavigator from './UploadStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +35,7 @@ const BottomTabNavigator = () => {
 
       <Tab.Screen
         name="Upload"
-        component={PostUploadScreen}
+        component={UploadStackNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="plus-circle-outline" size={size} color={color} />

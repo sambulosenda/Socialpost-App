@@ -1,4 +1,4 @@
-type Like @model @auth(rules: [{allow: public}]) {
+type Like @model @auth(rules: [{ allow: public }]) {
   id: ID!
   userID: ID! @index(name: "byUser")
   postID: ID! @index(name: "byPost")
@@ -7,22 +7,20 @@ type Like @model @auth(rules: [{allow: public}]) {
   Post: Post @belongsTo(fields: ["postID"])
 }
 
-type Comment @model @auth(rules: [{allow: public}]) {
+type Comment @model @auth(rules: [{ allow: public }]) {
   id: ID!
   comment: String!
   userID: ID! @index(name: "byUser")
   postID: ID! @index(name: "byPost")
 
-
   User: User @belongsTo(fields: ["userID"])
   Post: Post @belongsTo(fields: ["postID"])
 }
 
-type Post @model @auth(rules: [{allow: public}]) {
+type Post @model @auth(rules: [{ allow: public }]) {
   id: ID!
-  description: String
+  description: String!
   image: String
-  images: [String!]
   video: String
   nofComments: Int!
   nofLikes: Int!
@@ -32,12 +30,12 @@ type Post @model @auth(rules: [{allow: public}]) {
   Comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"])
 }
 
-type User @model @auth(rules: [{allow: public}]) {
+type User @model @auth(rules: [{ allow: public }]) {
   id: ID!
   name: String!
   email: String!
   bio: String
-  username: String
+  username: String @index(name: "usersByUsername", queryField: "usersByUsername")
   website: AWSURL
   nofPosts: Int!
   nofFollowers: Int!

@@ -4,13 +4,18 @@ import { useEffect, useState } from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../theme/colors';
 import { FlashMode } from 'expo-camera/build/Camera.types';
+import { useNavigation } from '@react-navigation/native';
+
 
 const flashModes = [FlashMode.off, FlashMode.on, FlashMode.auto, FlashMode.torch];
 
-const PostUploadScreen = () => {
+const CameraScreen = () => {
   const [hasPermissions, setHasPermissions] = useState<boolean | null>(null);
   const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
   const [flash, setFlash] = useState(FlashMode.off);
+
+  const navigation = useNavigation()
+
 
   useEffect(() => {
     const getPermission = async () => {
@@ -37,6 +42,11 @@ const PostUploadScreen = () => {
     setFlash(flashModes[nextIndex]);
   };
 
+
+  const navigatetoPostScreen  =() => {
+    navigation.navigate('Create');
+  }
+
   if (hasPermissions === null) {
     return <Text>Loading...</Text>;
   }
@@ -60,7 +70,7 @@ const PostUploadScreen = () => {
 
       <View style={[styles.buttonsContainer, { bottom: 25 }]}>
         <MaterialIcons name="photo-library" size={30} color={colors.white} />
-        <View style={styles.circle} />
+        <Pressable onPress={navigatetoPostScreen} style={styles.circle} />
 
         <Pressable onPress={flipCamera}>
           <MaterialIcons name="flip-camera-ios" size={38} color={colors.white} />
@@ -70,7 +80,7 @@ const PostUploadScreen = () => {
   );
 };
 
-export default PostUploadScreen;
+export default CameraScreen;
 
 const styles = StyleSheet.create({
   page: {

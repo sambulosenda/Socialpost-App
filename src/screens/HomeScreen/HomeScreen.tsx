@@ -25,7 +25,6 @@ export const listPosts = gql`
         
         description
         image
-        images
         video
         nofComments
         nofLikes
@@ -81,6 +80,7 @@ const HomeScreen = (props) => {
     <FlatList
       data={posts}
       renderItem={({ item }) => item && <FeedPost post={item} />}
+     
       showsVerticalScrollIndicator={false}
     />
   );

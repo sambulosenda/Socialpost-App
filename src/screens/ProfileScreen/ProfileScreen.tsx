@@ -1,46 +1,59 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import user from '../../assets/data/user.json';
 import Button from '../../components/Button/Button';
+import { ActivityIndicator } from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Auth } from 'aws-amplify';
+import { GetUserQuery, GetUserQueryVariables, User } from '../../API';
+
+import { useQuery } from '@apollo/client';
+import { getUser } from './queries';
+import ApiErrorMessage from '../../components/ApiErrorMessage/ApiErrorMessage';
+import { useAuthContext } from '../../contexts/AuthContext';
+import {
+  MyProfileNavigationProp,
+  MyProfileRouteProp,
+  UserProfileNavigationProp,
+} from '../../types/navigation';
+import ProfileHeader from './ProfileHeader';
+import FeedPost from '../../components/FeedPost/FeedPost';
 
 const ProfileScreen = () => {
-  const route = useRoute();
-  const navigation = useNavigation();
-  const  userId  = route.params?.userId;
+  const route = useRoute<MyProfileNavigationProp | MyProfileRouteProp>();
+  const navigation = useNavigation<UserProfileNavigationProp | MyProfileNavigationProp>();
+  const { userId: authUserId } = useAuthContext();
 
-  navigation.setOptions({ title: user.username });
+  const userId = route.params?.userId || authUserId;
+
+  const { data, loading, error, refetch } = useQuery<GetUserQuery, GetUserQueryVariables>(getUser, {
+    variables: { id: userId },
+  });
+  const user = data?.getUser;
+  console.log(user);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
+  if (error || !user) {
+    return (
+      <ApiErrorMessage
+        title="Error fetching the user"
+        message={error?.message || 'User not found'}
+        onRetry={() => refetch()}
+      />
+    );
+  }
 
   return (
     <View style={styles.root}>
-      <View style={styles.headerRow}>
-        <Image source={{ uri: user.image }} style={styles.avatar} />
-
-        <View style={styles.numberContainer}>
-          <Text style={styles.numberText}>92</Text>
-          <Text>Posts</Text>
-        </View>
-
-        <View style={styles.numberContainer}>
-          <Text style={styles.numberText}>921</Text>
-          <Text>Followers</Text>
-        </View>
-
-        <View style={styles.numberContainer}>
-          <Text style={styles.numberText}>921</Text>
-          <Text>Following</Text>
-        </View>
-      </View>
-
-      <Text style={styles.name}>{user.name}</Text>
-      <Text>{user.bio}</Text>
-
-      <View style={{ flexDirection: 'row' }}>
-        <Button text="Edit Profile" onPress={() => console.warn('edit')} />
-        <Button onPress={() => Auth.signOut()} text="Sign out" />
-      </View>
+      <FlatList
+        data={user.Posts?.items || []}
+        ListHeaderComponent={() => <ProfileHeader user={user} />}
+        renderItem={({ item }) => item && <FeedPost post={item} />}
+        stickyHeaderIndices={[0]}
+        />
     </View>
   );
 };

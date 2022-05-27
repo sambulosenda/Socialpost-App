@@ -236,6 +236,16 @@ export const schema = {
                     "properties": {}
                 },
                 {
+                    "type": "key",
+                    "properties": {
+                        "name": "usersByUsername",
+                        "queryField": "usersByUsername",
+                        "fields": [
+                            "username"
+                        ]
+                    }
+                },
+                {
                     "type": "auth",
                     "properties": {
                         "rules": [
@@ -267,7 +277,7 @@ export const schema = {
                     "name": "description",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "image": {
@@ -276,14 +286,6 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
-                },
-                "images": {
-                    "name": "images",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": [],
-                    "isArrayNullable": true
                 },
                 "video": {
                     "name": "video",
@@ -504,5 +506,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "2e22dffe87e84526343356152b1ea49b"
+    "version": "4342ac243a4b235a254e403902948b11"
 };

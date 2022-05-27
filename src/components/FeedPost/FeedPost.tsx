@@ -74,7 +74,7 @@ const FeedPost = ({ post }: IFeedPost) => {
       </View>
 
       {/* Content*/}
-      <View>{content}</View>
+  
       {/* Footer */}
       <View style={styles.footer}>
         <View style={styles.iconContainer}>

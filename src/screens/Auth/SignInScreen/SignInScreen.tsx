@@ -11,7 +11,6 @@ import { SignInNavigationProp } from '../../../types/navigation';
 import { Auth } from 'aws-amplify';
 import { useState, useContext } from 'react';
 import colors from '../../../theme/colors';
-import { useAuthContext } from '../../../contexts/AuthContext';
 
 type SignInData = {
   email: string;
@@ -22,31 +21,27 @@ const SignInScreen = () => {
   const { height } = useWindowDimensions();
   const navigation = useNavigation<SignInNavigationProp>();
   const [loading, setLoading] = useState(false);
-  const { setUser } = useAuthContext();
 
   const { control, handleSubmit, reset } = useForm<SignInData>();
-
-  const onSignInPressed = async ({ email, password }: SignInData) => {
+  const onSignInPressed = async ({email, password}: SignInData) => {
     if (loading) {
-      return Alert.alert('Please wait', 'Signing in...');
+      return;
     }
     setLoading(true);
     try {
-      const cognitoUser = await Auth.signIn(email, password);
-
-      //save data in context
-      setUser(cognitoUser);
+      await Auth.signIn(email, password);
     } catch (e) {
-
-      Alert.alert('Opps', (e as Error).message);
+      if ((e as Error).name === 'UserNotConfirmedException') {
+        navigation.navigate('Confirm email', {email});
+      } else {
+        Alert.alert('Oopps', (e as Error).message);
+      }
     } finally {
       setLoading(false);
       reset();
     }
-
-    // validate user
-    // navigation.navigate('Home');
   };
+
 
   const onForgotPasswordPressed = () => {
     navigation.navigate('Forgot password');

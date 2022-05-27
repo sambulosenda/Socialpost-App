@@ -19,6 +19,18 @@ export const onCreateLike = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -29,11 +41,35 @@ export const onCreateLike = /* GraphQL */ `
         id
         description
         image
-        images
         video
         nofComments
         nofLikes
         userID
+        User {
+          id
+          name
+          email
+          bio
+          username
+          website
+          nofPosts
+          nofFollowers
+          nofFollowing
+          image
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -65,6 +101,18 @@ export const onUpdateLike = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -75,11 +123,35 @@ export const onUpdateLike = /* GraphQL */ `
         id
         description
         image
-        images
         video
         nofComments
         nofLikes
         userID
+        User {
+          id
+          name
+          email
+          bio
+          username
+          website
+          nofPosts
+          nofFollowers
+          nofFollowing
+          image
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -111,6 +183,18 @@ export const onDeleteLike = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -121,11 +205,35 @@ export const onDeleteLike = /* GraphQL */ `
         id
         description
         image
-        images
         video
         nofComments
         nofLikes
         userID
+        User {
+          id
+          name
+          email
+          bio
+          username
+          website
+          nofPosts
+          nofFollowers
+          nofFollowing
+          image
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -158,6 +266,18 @@ export const onCreateComment = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -168,11 +288,35 @@ export const onCreateComment = /* GraphQL */ `
         id
         description
         image
-        images
         video
         nofComments
         nofLikes
         userID
+        User {
+          id
+          name
+          email
+          bio
+          username
+          website
+          nofPosts
+          nofFollowers
+          nofFollowing
+          image
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -205,6 +349,18 @@ export const onUpdateComment = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -215,11 +371,35 @@ export const onUpdateComment = /* GraphQL */ `
         id
         description
         image
-        images
         video
         nofComments
         nofLikes
         userID
+        User {
+          id
+          name
+          email
+          bio
+          username
+          website
+          nofPosts
+          nofFollowers
+          nofFollowing
+          image
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -252,6 +432,18 @@ export const onDeleteComment = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -262,11 +454,35 @@ export const onDeleteComment = /* GraphQL */ `
         id
         description
         image
-        images
         video
         nofComments
         nofLikes
         userID
+        User {
+          id
+          name
+          email
+          bio
+          username
+          website
+          nofPosts
+          nofFollowers
+          nofFollowing
+          image
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -287,7 +503,6 @@ export const onCreatePost = /* GraphQL */ `
       id
       description
       image
-      images
       video
       nofComments
       nofLikes
@@ -303,6 +518,18 @@ export const onCreatePost = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -310,10 +537,31 @@ export const onCreatePost = /* GraphQL */ `
         _lastChangedAt
       }
       Likes {
+        items {
+          id
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Comments {
+        items {
+          id
+          comment
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
@@ -331,7 +579,6 @@ export const onUpdatePost = /* GraphQL */ `
       id
       description
       image
-      images
       video
       nofComments
       nofLikes
@@ -347,6 +594,18 @@ export const onUpdatePost = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -354,10 +613,31 @@ export const onUpdatePost = /* GraphQL */ `
         _lastChangedAt
       }
       Likes {
+        items {
+          id
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Comments {
+        items {
+          id
+          comment
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
@@ -375,7 +655,6 @@ export const onDeletePost = /* GraphQL */ `
       id
       description
       image
-      images
       video
       nofComments
       nofLikes
@@ -391,6 +670,18 @@ export const onDeletePost = /* GraphQL */ `
         nofFollowers
         nofFollowing
         image
+        Posts {
+          nextToken
+          startedAt
+        }
+        Comments {
+          nextToken
+          startedAt
+        }
+        Likes {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -398,10 +689,31 @@ export const onDeletePost = /* GraphQL */ `
         _lastChangedAt
       }
       Likes {
+        items {
+          id
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Comments {
+        items {
+          id
+          comment
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
@@ -427,14 +739,49 @@ export const onCreateUser = /* GraphQL */ `
       nofFollowing
       image
       Posts {
+        items {
+          id
+          description
+          image
+          video
+          nofComments
+          nofLikes
+          userID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Comments {
+        items {
+          id
+          comment
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Likes {
+        items {
+          id
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
@@ -460,14 +807,49 @@ export const onUpdateUser = /* GraphQL */ `
       nofFollowing
       image
       Posts {
+        items {
+          id
+          description
+          image
+          video
+          nofComments
+          nofLikes
+          userID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Comments {
+        items {
+          id
+          comment
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Likes {
+        items {
+          id
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
@@ -493,14 +875,49 @@ export const onDeleteUser = /* GraphQL */ `
       nofFollowing
       image
       Posts {
+        items {
+          id
+          description
+          image
+          video
+          nofComments
+          nofLikes
+          userID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Comments {
+        items {
+          id
+          comment
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }
       Likes {
+        items {
+          id
+          userID
+          postID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         nextToken
         startedAt
       }

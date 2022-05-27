@@ -1,32 +1,39 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import {Pressable, Text, StyleSheet} from 'react-native';
+import colors from '../../theme/colors';
+import fonts from '../../theme/fonts';
 
 interface IButton {
   text?: string;
   onPress?: () => void;
+  inline?: boolean;
 }
-const Button = ({ text = '', onPress = () => {} }: IButton) => {
+
+const Button = ({text = '', onPress = () => {}, inline = false}: IButton) => {
   return (
-    <Pressable onPress={onPress} style={styles.container}>
+    <Pressable
+      onPress={onPress}
+      style={[styles.container, inline ? {flex: 1} : {}]}>
       <Text style={styles.text}>{text}</Text>
     </Pressable>
   );
 };
 
-export default Button;
-
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.border,
     borderRadius: 5,
+
     padding: 5,
+
     alignItems: 'center',
-    flex: 1,
+
     margin: 5,
   },
   text: {
-    color: 'black',
-    fontWeight: 'bold',
+    color: colors.black,
+    fontWeight: fonts.weight.semi,
   },
 });
+
+export default Button;
