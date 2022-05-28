@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TextInput, ActivityIndicator, Alert } fr
 import colors from '../../theme/colors';
 import fonts from '../../theme/fonts';
 
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 import { useForm, Controller, Control } from 'react-hook-form';
 import { IUser } from '../../types/models';
@@ -112,21 +112,20 @@ const EditProfileScreen = () => {
 
     try {
       const response = await getUsersByUsername({ variables: { username } });
-      if(response.error) {
-        Alert.alert("Failed to fetch username")
-        return 'Failed to fetch username'
+      if (response.error) {
+        Alert.alert('Failed to fetch username');
+        return 'Failed to fetch username';
       }
       const users = response.data?.usersByUsername?.items;
-      if(users && users.length > 0 && users?.[0]?.id !== userId) {
-        return 'Username is already taken'
+      if (users && users.length > 0 && users?.[0]?.id !== userId) {
+        return 'Username is already taken';
       }
-
     } catch (e) {
       Alert.alert('Failed to fetch username');
     }
 
     //If the username is taken, return false
-    return true ;
+    return true;
   };
 
   if (loading) {
