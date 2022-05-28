@@ -14,7 +14,6 @@ import VideoPlayer from '../VideoPlayer/VideoPlayer';
 import { useNavigation } from '@react-navigation/native';
 import { Post } from '../../API';
 
-
 interface IFeedPost {
   post: Post;
 }
@@ -26,8 +25,7 @@ const FeedPost = ({ post }: IFeedPost) => {
 
   const navigationToUser = () => {
     navigation.navigate('UserProfile', { userId: post.User?.id });
-
-  }
+  };
 
   const toggleDescription = () => {
     setIsDescriptionExpanded((existingValue) => !existingValue);
@@ -61,7 +59,9 @@ const FeedPost = ({ post }: IFeedPost) => {
       {/* Header */}
       <View style={styles.header}>
         <Image source={{ uri: post.User?.image }} style={styles.avatar} />
-        <Text onPress={navigationToUser}style={styles.username}>{post.User?.username}</Text>
+        <Text onPress={navigationToUser} style={styles.username}>
+          {post.User?.username}
+        </Text>
         <Entypo name="dots-three-horizontal" size={16} style={styles.threeDots} />
       </View>
 
@@ -74,7 +74,7 @@ const FeedPost = ({ post }: IFeedPost) => {
       </View>
 
       {/* Content*/}
-  
+
       {/* Footer */}
       <View style={styles.footer}>
         <View style={styles.iconContainer}>
@@ -105,8 +105,7 @@ const FeedPost = ({ post }: IFeedPost) => {
         {/* Post Comments*/}
         <Text>View all {post.nofComments} comments</Text>
         {(post.Comments?.items || []).map(
-          comment => comment &&  
-          <Comment key={comment.id} comment={comment} />
+          (comment) => comment && <Comment key={comment.id} comment={comment} />
         )}
         <Text>{post.createdAt}</Text>
       </View>

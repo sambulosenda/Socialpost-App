@@ -7,8 +7,6 @@ import BottomTabNavigator from './BottomTabNavigator';
 import AuthStackNavigator from './AuthStackNavigator';
 import { useAuthContext } from '../contexts/AuthContext';
 import EditProfileScreen from '../screens/EditProfileScreen/EditProfileScreen';
-import NewPostScreen from '../screens/NewPostScreeen/NewPostScreen';
-import PostUploadScreen from '../screens/PostUploadScreen/PostUploadScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,7 +49,6 @@ const Navigation = () => {
               component={EditProfileScreen}
               options={{ title: 'Edit Profile' }}
             />
-            <Stack.Screen name="TakePhoto" component={PostUploadScreen} />
           </>
         )}
       </Stack.Navigator>

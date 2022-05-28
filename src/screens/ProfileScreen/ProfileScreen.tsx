@@ -38,11 +38,13 @@ const ProfileScreen = () => {
 
   if (error || !user) {
     return (
-      <ApiErrorMessage
+      <><ApiErrorMessage
         title="Error fetching the user"
         message={error?.message || 'User not found'}
         onRetry={() => refetch()}
       />
+      <Button onPress={() => Auth.signOut()} text="Sign out" inline /></>
+      
     );
   }
 
@@ -53,7 +55,9 @@ const ProfileScreen = () => {
         ListHeaderComponent={() => <ProfileHeader user={user} />}
         renderItem={({ item }) => item && <FeedPost post={item} />}
         stickyHeaderIndices={[0]}
-        />
+      />
+
+
     </View>
   );
 };

@@ -1,5 +1,5 @@
-import {CognitoUser} from 'amazon-cognito-identity-js';
-import {Auth} from 'aws-amplify';
+import { CognitoUser } from 'amazon-cognito-identity-js';
+import { Auth } from 'aws-amplify';
 import {
   createContext,
   Dispatch,
@@ -9,8 +9,9 @@ import {
   useEffect,
   useState,
 } from 'react';
-import {Hub} from 'aws-amplify';
-import {HubCallback} from '@aws-amplify/core';
+
+import { Hub } from 'aws-amplify';
+import { HubCallback } from '@aws-amplify/core';
 
 type UserType = CognitoUser | null | undefined;
 
@@ -24,7 +25,7 @@ const AuthContext = createContext<AuthContextType>({
   userId: '',
 });
 
-const AuthContextProvider = ({children}: {children: ReactNode}) => {
+const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<UserType>(undefined);
 
   const checkUser = async () => {
@@ -43,8 +44,8 @@ const AuthContextProvider = ({children}: {children: ReactNode}) => {
   }, []);
 
   useEffect(() => {
-    const listener: HubCallback = data => {
-      const {event} = data.payload;
+    const listener: HubCallback = (data) => {
+      const { event } = data.payload;
       if (event === 'signOut') {
         setUser(null);
       }
@@ -58,7 +59,7 @@ const AuthContextProvider = ({children}: {children: ReactNode}) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{user, userId: user?.attributes?.sub}}>
+    <AuthContext.Provider value={{ user, userId: user?.attributes?.sub }}>
       {children}
     </AuthContext.Provider>
   );

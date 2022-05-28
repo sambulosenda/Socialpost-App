@@ -22,7 +22,7 @@ export const listPosts = gql`
     listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        
+
         description
         image
         video
@@ -72,7 +72,7 @@ const HomeScreen = (props) => {
   const { data, loading, error } = useQuery<ListPostsQuery, ListPostsQueryVariables>(listPosts);
 
   if (loading) return <Text>Loading...</Text>;
-  if (error) return <ApiErrorMessage title='Error fetching posts' message={error.message} />;
+  if (error) return <ApiErrorMessage title="Error fetching posts" message={error.message} />;
 
   const posts = data?.listPosts?.items || [];
 
@@ -80,7 +80,6 @@ const HomeScreen = (props) => {
     <FlatList
       data={posts}
       renderItem={({ item }) => item && <FeedPost post={item} />}
-     
       showsVerticalScrollIndicator={false}
     />
   );

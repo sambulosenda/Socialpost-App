@@ -27,7 +27,7 @@ const Comment = ({ comment, includeDetails = false }: ICommentProps) => {
         </Text>
 
         {includeDetails && (
-            <View style={styles.footer}>
+          <View style={styles.footer}>
           <Text style={styles.footerText}>2 days ago</Text>
           <Text style={styles.footerText}>4 likes</Text>
           <Text style={styles.footerText}>Reply</Text>

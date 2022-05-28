@@ -7,37 +7,61 @@ import {
   Text,
   Image,
   View,
+  Alert,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import colors from '../../theme/colors';
 import { useNavigation } from '@react-navigation/core';
+import { useRoute } from '@react-navigation/native';
+import { CreateRouteProp } from '../../types/navigation';
+import { createPost } from './queries';
+import { useMutation } from '@apollo/client';
+import { CreatePostMutation, CreatePostMutationVariables } from '../../API';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 const NewPostScreen = () => {
-  const [tweet, setTweet] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [description, setDescription] = useState('');
+  const { userId } = useAuthContext();
   const navigation = useNavigation();
+
+  const [doCreatePost] = useMutation<CreatePostMutation, CreatePostMutationVariables>(createPost);
+
+  const route = useRoute<CreateRouteProp>();
+
+  const submit = async () => {
+    try {
+      const response = await doCreatePost({
+        variables: {
+          input: {
+            description,
+            nofComments: 0,
+            nofLikes: 0,
+            userID: userId,
+          },
+        },
+      });
+    } catch (e) {
+     Alert.alert("Error uploading post", (e as Error).message);
+    }
+  };
 
   return (
     <View>
       <View style={styles.newTweetContainer}>
         <View style={styles.inputsContainer}>
           <TextInput
-            value={tweet}
-            onChangeText={(value) => setTweet(value)}
+            value={description}
+            onChangeText={(value) => setDescription(value)}
             multiline={true}
             numberOfLines={3}
             style={styles.tweetInput}
-            placeholder={"What's happening?"}
+            placeholder={'What is happening in your area'}
           />
-          <TouchableOpacity onPress={() => navigation.navigate('TakePhoto')}>
-            <Text style={styles.pickimage}>Pick Image </Text>
-          </TouchableOpacity>
-          <Image source={{ uri: imageUrl }} style={styles.image} />
         </View>
       </View>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Tweet</Text>
+      <TouchableOpacity style={styles.button} onPress={submit}>
+        <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
     </View>
   );

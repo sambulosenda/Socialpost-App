@@ -2,7 +2,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NewPostScreen from '../screens/NewPostScreeen/NewPostScreen';
 import CameraScreen from '../screens/PostUploadScreen/PostUploadScreen';
 
-const Stack = createNativeStackNavigator();
+import { UploadStackNavigatorParamList } from '../types/navigation';
+
+const Stack = createNativeStackNavigator<UploadStackNavigatorParamList>();
 
 const UploadStackNavigator = () => {
   return (

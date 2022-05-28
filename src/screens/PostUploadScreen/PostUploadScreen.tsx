@@ -5,7 +5,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../theme/colors';
 import { FlashMode } from 'expo-camera/build/Camera.types';
 import { useNavigation } from '@react-navigation/native';
-
+import { CameraNavigationProp } from '../../types/navigation';
 
 const flashModes = [FlashMode.off, FlashMode.on, FlashMode.auto, FlashMode.torch];
 
@@ -14,8 +14,7 @@ const CameraScreen = () => {
   const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
   const [flash, setFlash] = useState(FlashMode.off);
 
-  const navigation = useNavigation()
-
+  const navigation = useNavigation<CameraNavigationProp>();
 
   useEffect(() => {
     const getPermission = async () => {
@@ -42,10 +41,9 @@ const CameraScreen = () => {
     setFlash(flashModes[nextIndex]);
   };
 
-
-  const navigatetoPostScreen  =() => {
-    navigation.navigate('Create');
-  }
+  const navigatetoPostScreen = () => {
+    navigation.navigate('Create', { image: 'https://picsum.photos/200' });
+  };
 
   if (hasPermissions === null) {
     return <Text>Loading...</Text>;

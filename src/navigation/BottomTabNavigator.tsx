@@ -5,8 +5,6 @@ import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import PostUploadScreen from '../screens/PostUploadScreen/PostUploadScreen';
-import NewPostScreen from '../screens/NewPostScreeen/NewPostScreen';
 import UploadStackNavigator from './UploadStackNavigator';
 
 const Tab = createBottomTabNavigator();
