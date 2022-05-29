@@ -1,21 +1,8 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  FlatList,
-  DataDetectorTypes,
-} from 'react-native';
-
-import FeedPost from '../../components/FeedPost/FeedPost';
-
-import { API, graphqlOperation } from 'aws-amplify';
-import { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
+import { FlatList, StyleSheet, Text } from 'react-native';
 import { ListPostsQuery, ListPostsQueryVariables } from '../../API';
 import ApiErrorMessage from '../../components/ApiErrorMessage/ApiErrorMessage';
+import FeedPost from '../../components/FeedPost/FeedPost';
 
 export const listPosts = gql`
   query ListPosts($filter: ModelPostFilterInput, $limit: Int, $nextToken: String) {
@@ -74,7 +61,7 @@ const HomeScreen = (props) => {
   if (loading) return <Text>Loading...</Text>;
   if (error) return <ApiErrorMessage title="Error fetching posts" message={error.message} />;
 
-  const posts = data?.listPosts?.items || [];
+  const posts = (data?.listPosts?.items || []).filter(post => !post?._deleted);
 
   return (
     <FlatList

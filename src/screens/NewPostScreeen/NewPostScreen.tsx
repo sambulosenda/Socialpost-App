@@ -1,23 +1,13 @@
-import {
-  StyleSheet,
-  TouchableOpacity,
-  SafeAreaView,
-  TextInput,
-  Platform,
-  Text,
-  Image,
-  View,
-  Alert,
-} from 'react-native';
-import React, { useEffect, useState } from 'react';
-import colors from '../../theme/colors';
+import { useMutation } from '@apollo/client';
 import { useNavigation } from '@react-navigation/core';
 import { useRoute } from '@react-navigation/native';
-import { CreateRouteProp } from '../../types/navigation';
-import { createPost } from './queries';
-import { useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { CreatePostMutation, CreatePostMutationVariables } from '../../API';
 import { useAuthContext } from '../../contexts/AuthContext';
+import colors from '../../theme/colors';
+import { CreateRouteProp } from '../../types/navigation';
+import { createPost } from './queries';
 
 const NewPostScreen = () => {
   const [description, setDescription] = useState('');
@@ -41,7 +31,7 @@ const NewPostScreen = () => {
         },
       });
     } catch (e) {
-     Alert.alert("Error uploading post", (e as Error).message);
+      Alert.alert('Error uploading post', (e as Error).message);
     }
   };
 

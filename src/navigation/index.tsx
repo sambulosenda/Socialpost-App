@@ -1,12 +1,12 @@
-import { View, Text, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import BottomTabNavigator from './BottomTabNavigator';
-import AuthStackNavigator from './AuthStackNavigator';
+import { ActivityIndicator, View } from 'react-native';
 import { useAuthContext } from '../contexts/AuthContext';
 import EditProfileScreen from '../screens/EditProfileScreen/EditProfileScreen';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
+import AuthStackNavigator from './AuthStackNavigator';
+import BottomTabNavigator from './BottomTabNavigator';
 
 const Stack = createNativeStackNavigator();
 

@@ -1,14 +1,9 @@
+import { useLazyQuery, useMutation, useQuery } from '@apollo/client';
+import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, TextInput, ActivityIndicator, Alert } from 'react-native';
-import colors from '../../theme/colors';
-import fonts from '../../theme/fonts';
-
+import { Control, Controller, useForm } from 'react-hook-form';
+import { ActivityIndicator, Alert, Image, StyleSheet, Text, TextInput, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
-
-import { useForm, Controller, Control } from 'react-hook-form';
-import { IUser } from '../../types/models';
-import { useMutation, useQuery, useLazyQuery } from '@apollo/client';
-import { getUser, updateUser, usersByUsername } from './queries';
 import {
   GetUserQuery,
   GetUserQueryVariables,
@@ -17,10 +12,11 @@ import {
   UsersByUsernameQuery,
   UsersByUsernameQueryVariables,
 } from '../../API';
-import { useAuthContext } from '../../contexts/AuthContext';
 import ApiErrorMessage from '../../components/ApiErrorMessage/ApiErrorMessage';
-import { useNavigation } from '@react-navigation/core';
-import { validate } from 'graphql';
+import { useAuthContext } from '../../contexts/AuthContext';
+import colors from '../../theme/colors';
+import { IUser } from '../../types/models';
+import { getUser, updateUser, usersByUsername } from './queries';
 
 const URL_REGEX =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;

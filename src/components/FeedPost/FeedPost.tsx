@@ -1,18 +1,18 @@
-import { View, Text, StyleSheet, Image, SafeAreaView, Pressable } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Post } from '../../API';
 import colors from '../../theme/colors';
 import fonts from '../../theme/fonts';
-import Comment from '../Comment/Comment';
-import { useState } from 'react';
 import Carousel from '../Carousel/Carousel';
+import Comment from '../Comment/Comment';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
-
-import { useNavigation } from '@react-navigation/native';
-import { Post } from '../../API';
+import PostMenu from './PostMenu';
+// somewhere in your app
 
 interface IFeedPost {
   post: Post;
@@ -57,12 +57,17 @@ const FeedPost = ({ post }: IFeedPost) => {
   return (
     <View style={styles.post}>
       {/* Header */}
+    
+
+
+
       <View style={styles.header}>
         <Image source={{ uri: post.User?.image }} style={styles.avatar} />
         <Text onPress={navigationToUser} style={styles.username}>
           {post.User?.username}
         </Text>
-        <Entypo name="dots-three-horizontal" size={16} style={styles.threeDots} />
+
+        <PostMenu post={post}/>
       </View>
 
       <View style={styles.main}>

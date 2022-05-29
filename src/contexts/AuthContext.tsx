@@ -1,17 +1,7 @@
-import { CognitoUser } from 'amazon-cognito-identity-js';
-import { Auth } from 'aws-amplify';
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
-
-import { Hub } from 'aws-amplify';
 import { HubCallback } from '@aws-amplify/core';
+import { CognitoUser } from 'amazon-cognito-identity-js';
+import { Auth, Hub } from 'aws-amplify';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 type UserType = CognitoUser | null | undefined;
 
