@@ -36,6 +36,7 @@ export type BottomTabNavigatorParamList = {
   Upload: undefined;
   Notifications: undefined;
   MyProfile: undefined;
+  UpdatePost: { postId: string };
 };
 
 export type MyProfileNavigationProp = BottomTabNavigationProp<
@@ -45,10 +46,18 @@ export type MyProfileNavigationProp = BottomTabNavigationProp<
 
 export type MyProfileRouteProp = RouteProp<BottomTabNavigatorParamList, 'MyProfile'>;
 
+
+
+
 export type HomeStackNavigatorParamList = {
   Feed: undefined;
   UserProfile: { userId: string };
 };
+
+export type UpdatePostRouteProp = RouteProp<BottomTabNavigatorParamList, 'UpdatePost'>;
+
+
+
 
 export type UserProfileNavigationProp = NativeStackNavigationProp<
   HomeStackNavigatorParamList,

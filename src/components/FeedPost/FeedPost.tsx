@@ -1,17 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Entypo from 'react-native-vector-icons/Entypo';
-import Feather from 'react-native-vector-icons/Feather';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Post } from '../../API';
-import colors from '../../theme/colors';
-import fonts from '../../theme/fonts';
 import Carousel from '../Carousel/Carousel';
-import Comment from '../Comment/Comment';
+import UserImage from '../UserImage/UserImage';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 import PostMenu from './PostMenu';
+
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import colors from '../../theme/colors';
 // somewhere in your app
 
 interface IFeedPost {
@@ -19,7 +18,10 @@ interface IFeedPost {
 }
 
 const FeedPost = ({ post }: IFeedPost) => {
-  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+  //Store the image uri in a state
+  const [imageUri, setImageUri] = useState<String | null>(null);
+
+  // const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const navigation = useNavigation();
 
@@ -27,9 +29,9 @@ const FeedPost = ({ post }: IFeedPost) => {
     navigation.navigate('UserProfile', { userId: post.User?.id });
   };
 
-  const toggleDescription = () => {
-    setIsDescriptionExpanded((existingValue) => !existingValue);
-  };
+  // const toggleDescription = () => {
+  //   setIsDescriptionExpanded((existingValue) => !existingValue);
+  // };
 
   const likePress = () => {
     setIsLiked((existingValue) => !existingValue);
@@ -53,125 +55,123 @@ const FeedPost = ({ post }: IFeedPost) => {
   } else if (post.video) {
     content = <VideoPlayer uri={post.video} />;
   }
-
   return (
-    <View style={styles.post}>
-      {/* Header */}
-    
+    <View style={styles.mainContainer}>
+      <View style={styles.container}>
+        {/* Header */}
 
-
-
-      <View style={styles.header}>
-        <Image source={{ uri: post.User?.image }} style={styles.avatar} />
-        <Text onPress={navigationToUser} style={styles.username}>
-          {post.User?.username}
-        </Text>
-
-        <PostMenu post={post}/>
-      </View>
-
-      <View style={styles.main}>
-        {/* Post Desciption*/}
-        <Text style={styles.text} numberOfLines={isDescriptionExpanded ? 0 : 3}>
-          {post.description}{' '}
-        </Text>
-        <Text onPress={toggleDescription}>{isDescriptionExpanded ? 'less' : 'more'}</Text>
-      </View>
-
-      {/* Content*/}
-
-      {/* Footer */}
-      <View style={styles.footer}>
-        <View style={styles.iconContainer}>
-          <Pressable onPress={likePress}>
-            <AntDesign
-              name={isLiked ? 'heart' : 'hearto'}
-              size={24}
-              style={styles.icon}
-              color={isLiked ? colors.accent : colors.black}
-            />
-          </Pressable>
-          <Ionicons name="chatbubble-outline" size={24} style={styles.icon} color={colors.black} />
-          <Feather name="send" size={24} style={styles.icon} color={colors.black} />
-          <Feather name="bookmark" size={24} style={{ marginLeft: 'auto' }} color={colors.black} />
+        {/* LeftContainer */}
+        <View>
+          <UserImage imagekey={post?.User?.image || undefined} width={40} />
         </View>
 
-        {/* Likes*/}
-        <Text style={styles.text}>
-          Linked by {''}
-          <Text style={styles.bold}>Michel</Text>
-          <Text style={styles.bold}>
-            {' '}
-            {''}and {post.nofLikes}
-          </Text>{' '}
-          others
-        </Text>
+        {/* Right */}
+        <View style={{ flexShrink: 1, marginLeft: 12, marginBottom: 15 }}>
+          <View style={styles.main}>
+            {/* Post Desciption*/}
 
-        {/* Post Comments*/}
-        <Text>View all {post.nofComments} comments</Text>
-        {(post.Comments?.items || []).map(
-          (comment) => comment && <Comment key={comment.id} comment={comment} />
-        )}
-        <Text>{post.createdAt}</Text>
+            <View
+              style={{
+                alignItems: 'center',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}
+            >
+              <Text onPress={navigationToUser} style={styles.username}>
+                {post.User?.username}
+              </Text>
+              <PostMenu post={post} />
+            </View>
+
+            <View>
+              <Text style={styles.contents}>{post.description}</Text>
+            </View>
+
+            <View style={styles.iconContainer}>
+              <Pressable onPress={likePress}>
+                <AntDesign
+                  name={isLiked ? 'heart' : 'hearto'}
+                  size={18}
+                  style={styles.icon}
+                  color={isLiked ? colors.accent : "#e0dcdc"}
+                />
+              </Pressable>
+              <Ionicons
+                name="chatbubble-outline"
+                size={18}
+                style={styles.icon}
+                color={"#e0dcdc"}
+              />
+              <Feather name="send" size={18} style={styles.icon} color={"#e0dcdc"} />
+              <Feather
+                name="bookmark"
+                size={18}
+                color={"#e0dcdc"}
+              />
+            </View>
+
+            {/* Likes*/}
+            <Text style={styles.text}>
+              Linked by {''}
+              <Text style={styles.bold}>Michel</Text>
+              <Text style={styles.bold}>
+                {' '}
+                {''}and {post.nofLikes}
+              </Text>{' '}
+              others
+            </Text>
+
+            {/* Post Comments*/}
+            <Text>View all {post.nofComments} comments</Text>
+            {(post.Comments?.items || []).map(
+              (comment) => comment && <Comment key={comment.id} comment={comment} />
+            )}
+            <Text>{post.createdAt}</Text>
+
+            {/* <Text onPress={toggleDescription}>{isDescriptionExpanded ? 'less' : 'more'}</Text> */}
+          </View>
+        </View>
+
+        {/* Content*/}
+
+        {/* Footer */}
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  post: {},
+  mainContainer: {},
 
-  video: {},
-
-  bold: {
-    fontWeight: fonts.weight.bold,
-  },
-
-  image: {
-    width: '100%',
-    aspectRatio: 1,
-  },
-  header: {
+  container: {
     flexDirection: 'row',
-    padding: 10,
+    borderBottomColor: 'light-grey',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#EAEEEC',
     alignItems: 'center',
   },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 10,
-  },
+
   username: {
-    fontWeight: fonts.weight.bold,
-    color: colors.black,
+    fontWeight: 'bold',
+    fontSize: 16,
   },
-
-  threeDots: {
-    marginLeft: 'auto',
+  contents: {
+    marginTop: 2,
+    fontSize: 16,
+    lineHeight: 20,
+    flexShrink: 1,
   },
-
+  icon: {
+    marginHorizontal: 5,
+  },
   footer: {
     padding: 10,
   },
-
-  main: {
-    padding: 10,
-  },
-
   iconContainer: {
     flexDirection: 'row',
     marginBottom: 5,
-    alignItems: 'center',
-  },
-  icon: {
-    marginRight: 10,
-  },
-  text: {
-    color: colors.black,
-    lineHeight: 20,
-    marginBottom: 8,
-    fontSize: 16,
+    marginTop: 10, 
+    justifyContent: 'space-between'
   },
 });
 

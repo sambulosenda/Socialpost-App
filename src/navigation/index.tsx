@@ -5,6 +5,7 @@ import { useAuthContext } from '../contexts/AuthContext';
 import EditProfileScreen from '../screens/EditProfileScreen/EditProfileScreen';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
+import UpdatePostScreen from '../screens/UpdatePostScreen/UpdatePostScreen';
 import AuthStackNavigator from './AuthStackNavigator';
 import BottomTabNavigator from './BottomTabNavigator';
 
@@ -48,6 +49,12 @@ const Navigation = () => {
               name="EditProfile"
               component={EditProfileScreen}
               options={{ title: 'Edit Profile' }}
+            />
+
+            <Stack.Screen
+              name="UpdatePost"
+              component={UpdatePostScreen}
+              options={{ title: 'Edit Post' }}
             />
           </>
         )}

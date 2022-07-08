@@ -8,6 +8,7 @@ interface ICustomInput<ContentType> {
   rules?: {};
   placeholder?: string;
   secureTextEntry?: boolean;
+  autoCapitalize?: string,
 }
 
 function CustomInput<ContentType>({
@@ -15,6 +16,7 @@ function CustomInput<ContentType>({
   name,
   rules = {},
   placeholder = '',
+  autoCapitalize = "none",
   secureTextEntry = false,
 }: ICustomInput<ContentType>) {
   return (

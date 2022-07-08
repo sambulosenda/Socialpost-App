@@ -1,44 +1,75 @@
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { useNavigation } from '@react-navigation/core';
 import { useRoute } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { CreatePostMutation, CreatePostMutationVariables } from '../../API';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  GetPostQuery,
+  GetPostQueryVariables,
+  UpdatePostMutation,
+  UpdatePostMutationVariables,
+} from '../../API';
+
+
+import ApiErrorMessage from '../../components/ApiErrorMessage/ApiErrorMessage';
 import { useAuthContext } from '../../contexts/AuthContext';
 import colors from '../../theme/colors';
-import { CreateRouteProp } from '../../types/navigation';
-import { createPost } from './queries';
+import { UpdatePostRouteProp } from '../../types/navigation';
+import { getPost, updatePost } from './queries';
 
-const NewPostScreen = () => {
+const UpdatePostScreen = () => {
   const [description, setDescription] = useState('');
   const { userId } = useAuthContext();
+
   const navigation = useNavigation();
 
-  const [doCreatePost] = useMutation<CreatePostMutation, CreatePostMutationVariables>(createPost);
+  const route = useRoute<UpdatePostRouteProp>();
+  const { id } = route.params;
+  const { data, loading, error } = useQuery<GetPostQuery, GetPostQueryVariables>(getPost, {
+    variables: { id },
+  });
 
-  const route = useRoute<CreateRouteProp>();
+  const [doUpdatePost, { error: updateError, data: updateData }] = useMutation<
+    UpdatePostMutation,
+    UpdatePostMutationVariables
+  >(updatePost);
+
+  const post = data?.getPost;
+
+  useEffect(() => {
+    if (post) {
+      setDescription(post.description || '');
+    }
+  }, [post]);
+
+  useEffect(() => {
+    if(updateData) {
+      navigation.goBack();
+    }
+  }, [updateData, navigation])
+
+  if (error || updateError) {
+    return (
+      <ApiErrorMessage
+        title="failed to fetch the post"
+        message={error?.message || updateError?.message}
+      />
+    );
+  }
+
+  if (loading) {
+    return <Text>Loading...</Text>;
+  }
 
   const submit = async () => {
-    try {
-      const response = await doCreatePost({
-        variables: {
-          input: {
-            description,
-            nofComments: 0,
-            nofLikes: 0,
-            userID: userId,
-          },
-        },
-      });
-      //Navigate to home screen after submit
-      //ToD
-    } catch (e) {
-      Alert.alert('Error uploading post', (e as Error).message);
+    if (!post) {
+      return;
     }
+    doUpdatePost({ variables: { input: { id: post.id, _version: post._version, description } } });
   };
 
   return (
-    <View style={styles.container}>
+    <View>
       <View style={styles.newTweetContainer}>
         <View style={styles.inputsContainer}>
           <TextInput
@@ -59,11 +90,12 @@ const NewPostScreen = () => {
   );
 };
 
-export default NewPostScreen;
+export default UpdatePostScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'flex-start',
     backgroundColor: 'white',
   },
   pickimage: {

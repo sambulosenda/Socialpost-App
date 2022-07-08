@@ -10,7 +10,6 @@ import { SignInNavigationProp } from '../../../types/navigation';
 //import Auth from AWS Amplify
 import { Auth } from 'aws-amplify';
 import { useState, useContext } from 'react';
-import colors from '../../../theme/colors';
 
 type SignInData = {
   email: string;
@@ -58,6 +57,7 @@ const SignInScreen = () => {
       <FormInput
         name="email"
         placeholder="Email"
+        autoCapitalize="none"
         control={control}
         rules={{ required: 'Username is required' }}
       />

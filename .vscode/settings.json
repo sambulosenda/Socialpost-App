@@ -12,6 +12,7 @@
     "chatbubble",
     "Ionicons",
     "Pressable",
-    "stepbackward"
+    "stepbackward",
+    "userid"
   ]
 }

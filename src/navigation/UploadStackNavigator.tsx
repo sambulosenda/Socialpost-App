@@ -7,6 +7,7 @@ import { UploadStackNavigatorParamList } from '../types/navigation';
 const Stack = createNativeStackNavigator<UploadStackNavigatorParamList>();
 
 const UploadStackNavigator = () => {
+
   return (
     <Stack.Navigator>
       <Stack.Screen name="Create" component={NewPostScreen} options={{ headerShown: false }} />
@@ -14,5 +15,6 @@ const UploadStackNavigator = () => {
     </Stack.Navigator>
   );
 };
+
 
 export default UploadStackNavigator;

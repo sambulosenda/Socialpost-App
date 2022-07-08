@@ -1,12 +1,15 @@
 import { useLazyQuery, useMutation, useQuery } from '@apollo/client';
 import { useNavigation } from '@react-navigation/core';
+import { Storage } from 'aws-amplify';
 import React, { useEffect, useState } from 'react';
 import { Control, Controller, useForm } from 'react-hook-form';
 import { ActivityIndicator, Alert, Image, StyleSheet, Text, TextInput, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
+import { v4 as uuidv4 } from 'uuid';
 import {
   GetUserQuery,
   GetUserQueryVariables,
+  UpdateUserInput,
   UpdateUserMutation,
   UpdateUserMutationVariables,
   UsersByUsernameQuery,
@@ -86,13 +89,39 @@ const EditProfileScreen = () => {
       setValue('website', user.website);
       setValue('bio', user.bio);
     }
-  }, [user]);
+  }, [user, setValue]);
 
   const onSubmit = async (data: IEditableUser) => {
+    const input: UpdateUserInput = { id: userId, ...data, _version: user?._version };
+
+    if (selectedPhoto?.uri) {
+      //upload photo
+      input.image = await uploadMedia(selectedPhoto.uri);
+    }
+
     await runUpdateUser({
-      variables: { input: { id: userId, ...data, _version: user?._version } },
+      variables: { input },
     });
-    navigation.goBack();
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+    }
+  };
+
+  const uploadMedia = async (uri: string) => {
+    try {
+      // get the blob of the file from uri
+      const response = await fetch(uri);
+      const blob = await response.blob();
+
+      const uriParts = uri.split('.');
+      const extension = uriParts[uriParts.length - 1];
+
+      // upload the file (blob) to S3
+      const s3Response = await Storage.put(`${uuidv4()}.${extension}`, blob);
+      return s3Response.key;
+    } catch (e) {
+      Alert.alert('Error uploading the file');
+    }
   };
 
   const onChangePhoto = () => {

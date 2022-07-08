@@ -1,0 +1,14 @@
+{
+  "resourceName": "storage",
+  "policyUUID": "5bccbded",
+  "bucketName": "picgramphotos-media",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
