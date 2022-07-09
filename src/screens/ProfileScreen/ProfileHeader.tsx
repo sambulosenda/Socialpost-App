@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import Button from '../../components/Button/Button';
 
 import { useNavigation } from '@react-navigation/native';
 import { Auth, Storage } from 'aws-amplify';
 import { User } from '../../API';
 
+import UserImage from '../../components/UserImage/UserImage';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { ProfileNavigationProp } from '../../types/navigation';
-import UserImage from '../../components/UserImage/UserImage';
 
 interface IProfileHeader {
   user: User;
@@ -33,7 +33,7 @@ const ProfileHeader = ({ user }: IProfileHeader) => {
   return (
     <View style={styles.root}>
       <View style={styles.headerRow}>
-      <UserImage imagekey={user.image || undefined} width={100} />
+        <UserImage imagekey={user.image || undefined} width={100} />
 
         <View style={styles.numberContainer}>
           <Text style={styles.numberText}>{user.nofPosts}</Text>

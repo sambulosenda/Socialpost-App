@@ -7,9 +7,8 @@ import {
   GetPostQuery,
   GetPostQueryVariables,
   UpdatePostMutation,
-  UpdatePostMutationVariables,
+  UpdatePostMutationVariables
 } from '../../API';
-
 
 import ApiErrorMessage from '../../components/ApiErrorMessage/ApiErrorMessage';
 import { useAuthContext } from '../../contexts/AuthContext';
@@ -43,7 +42,7 @@ const UpdatePostScreen = () => {
   }, [post]);
 
   useEffect(() => {
-    if(updateData) {
+    if (updateData) {
       navigation.goBack();
     }
   }, [updateData, navigation])

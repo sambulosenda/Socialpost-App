@@ -1,16 +1,23 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Post } from '../../API';
+import {
+  CreateLikeMutation,
+  CreateLikeMutationVariables, DeleteLikeMutation, DeleteLikeMutationVariables, LikesForPostByUserQuery,
+  LikesForPostByUserQueryVariables, Post
+} from '../../API';
 import Carousel from '../Carousel/Carousel';
 import UserImage from '../UserImage/UserImage';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 import PostMenu from './PostMenu';
 
+import { useMutation, useQuery } from '@apollo/client';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useAuthContext } from '../../contexts/AuthContext';
 import colors from '../../theme/colors';
+import { createLike, deleteLike, likesForPostByUser } from './queries';
 // somewhere in your app
 
 interface IFeedPost {
@@ -21,8 +28,29 @@ const FeedPost = ({ post }: IFeedPost) => {
   //Store the image uri in a state
   const [imageUri, setImageUri] = useState<String | null>(null);
 
+  const { userId } = useAuthContext();
+
   // const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
+  //const [isLiked, setIsLiked] = useState(false);
+
+  const [doCreateLike] = useMutation<CreateLikeMutation, CreateLikeMutationVariables>(createLike, {
+    variables: { input: { userID: userId, postID: post.id } },
+    refetchQueries: ['LikesForPostByUser'],
+  });
+
+  const [doDeleteLike] = useMutation<DeleteLikeMutation, DeleteLikeMutationVariables>(deleteLike, {
+    refetchQueries: ['LikesForPostByUser'],
+  })
+
+
+  const { data: usersLikeData } = useQuery<
+    LikesForPostByUserQuery,
+    LikesForPostByUserQueryVariables
+  >(likesForPostByUser, { variables: { postID: post.id, userID: { eq: userId } } });
+
+  console.log(usersLikeData);
+  const userLike = (usersLikeData?.likesForPostByUser?.items || []).filter(like => !like?._deleted,)?.[0];
+
   const navigation = useNavigation();
 
   const navigationToUser = () => {
@@ -34,7 +62,15 @@ const FeedPost = ({ post }: IFeedPost) => {
   // };
 
   const likePress = () => {
-    setIsLiked((existingValue) => !existingValue);
+    if (userLike) {
+      //delelete like
+
+      doDeleteLike({ variables: { input: { id: userLike.id, _version: userLike._version } }, })
+
+    } else {
+      doCreateLike();
+
+    }
   };
 
   // let lastTap = 0;
@@ -61,8 +97,8 @@ const FeedPost = ({ post }: IFeedPost) => {
         {/* Header */}
 
         {/* LeftContainer */}
-        <View>
-          <UserImage imagekey={post?.User?.image || undefined} width={40} />
+        <View style={styles.profilepicture}>
+          <UserImage imagekey={post?.User?.image || undefined} width={50} />
         </View>
 
         {/* Right */}
@@ -90,24 +126,15 @@ const FeedPost = ({ post }: IFeedPost) => {
             <View style={styles.iconContainer}>
               <Pressable onPress={likePress}>
                 <AntDesign
-                  name={isLiked ? 'heart' : 'hearto'}
+                  name={userLike ? 'heart' : 'hearto'}
                   size={18}
                   style={styles.icon}
-                  color={isLiked ? colors.accent : "#e0dcdc"}
+                  color={userLike ? colors.accent : '#e0dcdc'}
                 />
               </Pressable>
-              <Ionicons
-                name="chatbubble-outline"
-                size={18}
-                style={styles.icon}
-                color={"#e0dcdc"}
-              />
-              <Feather name="send" size={18} style={styles.icon} color={"#e0dcdc"} />
-              <Feather
-                name="bookmark"
-                size={18}
-                color={"#e0dcdc"}
-              />
+              <Ionicons name="chatbubble-outline" size={18} style={styles.icon} color={'#e0dcdc'} />
+              <Feather name="send" size={18} style={styles.icon} color={'#e0dcdc'} />
+              <Feather name="bookmark" size={18} color={'#e0dcdc'} />
             </View>
 
             {/* Likes*/}
@@ -143,17 +170,22 @@ const FeedPost = ({ post }: IFeedPost) => {
 const styles = StyleSheet.create({
   mainContainer: {},
 
+  profilepicture: {
+    marginTop: 10,
+  },
+
   container: {
     flexDirection: 'row',
-    borderBottomColor: 'light-grey',
+    borderBottomColor: '#EAEEEC',
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: '#EAEEEC',
-    alignItems: 'center',
+    marginTop: 10,
   },
 
   username: {
     fontWeight: 'bold',
     fontSize: 16,
+    marginTop: 5,
   },
   contents: {
     marginTop: 2,
@@ -170,8 +202,8 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     marginBottom: 5,
-    marginTop: 10, 
-    justifyContent: 'space-between'
+    marginTop: 10,
+    justifyContent: 'space-between',
   },
 });
 

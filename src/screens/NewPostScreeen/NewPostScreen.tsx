@@ -45,14 +45,15 @@ const NewPostScreen = () => {
             value={description}
             onChangeText={(value) => setDescription(value)}
             multiline={true}
-            numberOfLines={3}
+            maxLength={100}
             style={styles.tweetInput}
             placeholder={'What is happening in your area'}
           />
         </View>
       </View>
+      <Text>Character Left ：{description.length === null ? 0 : description.length}/100</Text>
 
-      <TouchableOpacity style={styles.button} onPress={submit}>
+      <TouchableOpacity disabled={!description} style={styles.button} onPress={submit}>
         <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
     </View>

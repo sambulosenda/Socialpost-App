@@ -1,28 +1,33 @@
 module.exports = {
-  root: true,
-
-  extends: [
-    "plugin:react/recommended",
-    "airbnb",
-    "airbnb/hooks",
-    "prettier",
-    "prettier/react", 
-     '@react-native-community',
-],
-  
- 
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  rules: {
-    'react-native/no-inline-styles': 0,
-  },
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        'no-shadow': 'off',
-        'no-undef': 'off',
-      },
+    "env": {
+        "es2021": true,
+        "node": true
     },
-  ],
-};
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        'prettier',
+        'prettier/react'
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        'prettier'
+    ],
+    "rules": {
+            // allow .js files to contain JSX code
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+
+    // prevent eslint to complain about the "styles" variable being used before it was defined
+    "no-use-before-define": ["error", { "variables": false }],
+
+    // ignore errors for the react-navigation package
+    "react/prop-types": ["error", { "ignore": ["navigation", "navigation.navigate"] }]
+    }
+}

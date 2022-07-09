@@ -13,7 +13,7 @@ import {
   UpdateUserMutation,
   UpdateUserMutationVariables,
   UsersByUsernameQuery,
-  UsersByUsernameQueryVariables,
+  UsersByUsernameQueryVariables
 } from '../../API';
 import ApiErrorMessage from '../../components/ApiErrorMessage/ApiErrorMessage';
 import { useAuthContext } from '../../contexts/AuthContext';
