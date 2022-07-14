@@ -57,6 +57,11 @@ const FeedPost = ({ post }: IFeedPost) => {
     navigation.navigate('UserProfile', { userId: post.User?.id });
   };
 
+  const  navigateToLikesPage = () => {
+    navigation.navigate('LikesScreen', {id: post.id} );
+  }
+  
+
   // const toggleDescription = () => {
   //   setIsDescriptionExpanded((existingValue) => !existingValue);
   // };
@@ -138,7 +143,7 @@ const FeedPost = ({ post }: IFeedPost) => {
             </View>
 
             {/* Likes*/}
-            <Text style={styles.text}>
+            <Text style={styles.text} onPress={navigateToLikesPage}>
               Linked by {''}
               <Text style={styles.bold}>Michel</Text>
               <Text style={styles.bold}>

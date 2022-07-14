@@ -6,7 +6,13 @@ export type RootNavigatorParamList = {
   Auth: undefined;
   Home: undefined;
   Comments: { postId: string };
+  PostLikes: {id: String}
 };
+
+export type PostLikesRouteProp = RouteProp<
+RootNavigatorParamList,
+  'PostLikes'
+>;
 
 export type UploadStackNavigatorParamList = {
   Camera: undefined;
@@ -37,6 +43,7 @@ export type BottomTabNavigatorParamList = {
   Notifications: undefined;
   MyProfile: undefined;
   UpdatePost: { postId: string };
+
 };
 
 export type MyProfileNavigationProp = BottomTabNavigationProp<

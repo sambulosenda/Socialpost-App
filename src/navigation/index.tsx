@@ -4,6 +4,7 @@ import { ActivityIndicator, View } from 'react-native';
 import { useAuthContext } from '../contexts/AuthContext';
 import EditProfileScreen from '../screens/EditProfileScreen/EditProfileScreen';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import PostLikesScreen from '../screens/PostLikesScreen/PostLikesScreen';
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import UpdatePostScreen from '../screens/UpdatePostScreen/UpdatePostScreen';
 import AuthStackNavigator from './AuthStackNavigator';
@@ -55,6 +56,12 @@ const Navigation = () => {
               name="UpdatePost"
               component={UpdatePostScreen}
               options={{ title: 'Edit Post' }}
+            />
+
+            <Stack.Screen
+              name="LikesScreen"
+              component={PostLikesScreen}
+              options={{ title: 'Likes' }}
             />
           </>
         )}
