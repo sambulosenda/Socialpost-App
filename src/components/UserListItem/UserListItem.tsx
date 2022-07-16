@@ -14,8 +14,6 @@ interface IUserListItem {
 const UserListItem = ({user}: IUserListItem) => {
 
   const navigation = useNavigation();
-
-
   const goToUserScreen = () => {
     navigation.navigate('UserProfile', {userId: user.id});
   };
@@ -26,7 +24,6 @@ const UserListItem = ({user}: IUserListItem) => {
         source={{uri: user.image || DEFAULT_USER_IMAGE}}
         style={styles.image}
       />
-
       <View>
         <Text style={styles.name}>{user.name}</Text>
         <Text style={styles.username}>{user.nofFollowers}</Text>

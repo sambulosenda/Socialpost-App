@@ -17,12 +17,10 @@ interface IProfileHeader {
 const ProfileHeader = ({ user }: IProfileHeader) => {
   //Store the image uri in a state
   const [imageUri, setImageUri] = useState<String | null>(null);
-
   const { userId } = useAuthContext();
-
   const navigation = useNavigation<ProfileNavigationProp>();
-
   navigation.setOptions({ title: user?.username || 'Profile' });
+
 
   useEffect(() => {
     if (user.image) {

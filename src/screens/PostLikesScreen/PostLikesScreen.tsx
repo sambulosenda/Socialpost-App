@@ -1,6 +1,6 @@
+import React from 'react'
 import { useQuery } from '@apollo/client'
 import { useRoute } from '@react-navigation/native'
-import React from 'react'
 import { FlatList, StyleSheet, Text } from 'react-native'
 import { LikesForPostByUserQuery, LikesForPostByUserQueryVariables } from '../../API'
 import ApiErrorMessage from '../../components/ApiErrorMessage/ApiErrorMessage'
@@ -23,13 +23,9 @@ const PostLikesScreen = () => {
 
   const likes = data?.likesForPostByUser?.items.filter(like => !like?._deleted) || [];
 
-
-  console.log(likes)
-
   return (
     <FlatList
       data={likes}
-
       renderItem={({ item }) => <UserListItem user={item?.User} />}
       showsVerticalScrollIndicator={false}
     />
